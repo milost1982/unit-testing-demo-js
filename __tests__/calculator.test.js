@@ -14,12 +14,26 @@ test('11 + 3 = 8', () => {
   expect(result).toBe(expected)
 })
 
-function test(title, callback) {
+// test async addition
+test('async 2 + 5 = 7', async () => {
+  const expected = 7
+  const result = await calc.addAsync(2,5)
+  expect(result).toBe(expected)
+})
+
+// test async substraction
+test('async 11 + 3 = 8', async () => {
+  const expected = 8
+  const result = await calc.subAsync(11,3)
+  expect(result).toBe(expected)
+})
+
+async function test(title, callback) {
   try {
-    callback()
+    await callback()
     console.log(`✔️  ${title}`)
   } catch (error) {
-    console.error(`❌  ${title}`)
+    console.error(`❌ ${title}`)
     console.error(error)
   }
 }
