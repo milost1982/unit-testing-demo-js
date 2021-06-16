@@ -1,14 +1,28 @@
 const calc = require('../src/calculator')
 
 // test addition
-let result = calc.add(2,5)
-let expected = 7
-expect(result).toBe(expected)
+test('2 + 5 = 7', () => {
+  const expected = 7
+  const result = calc.add(2,5)
+  expect(result).toBe(expected)
+})
 
 // test substraction
-result = calc.sub(11,3)
-expected = 8
-expect(result).toBe(expected)
+test('11 + 3 = 8', () => {
+  const expected = 8
+  const result = calc.sub(11,3)
+  expect(result).toBe(expected)
+})
+
+function test(title, callback) {
+  try {
+    callback()
+    console.log(`✔️  ${title}`)
+  } catch (error) {
+    console.error(`❌  ${title}`)
+    console.error(error)
+  }
+}
 
 function expect(actual) {
   return {
