@@ -22,6 +22,7 @@ function expect(actual) {
   }
 }
 
-global.test = test
-global.expect = expect
-
+if (!global.test && !global.expect) {
+  global.expect = expect
+  global.test = test
+}
