@@ -1,0 +1,21 @@
+Zadaci za vezbu:
+1. dodati u kalkulator metode za mnozenje (mul) i deljenje (div)
+2. dodati po jedan test za obe funkcije
+3. izmeniti div() metodu da baca Error ako se pokusa deljenje sa nulom
+4. napisati test koji testira slucaj deljenja sa nulom i assertuje da se ocekuje dobijanje greske (videti .toThrow() u Jest dokumentaciji)
+5. napisati async verzije ove dve funkcije
+6. napisati po jedan test za async verzije
+
+7. napisati funkciju koja koristi javni REST API servis za informacije o trenutnom vremenu u datom gradu
+GET https://goweather.herokuapp.com/weather/:city
+gde umesto :city treba staviti ime grada.
+(npr. za Beograd bi url bio: https://goweather.herokuapp.com/weather/belgrade)
+funkcija treba da:
+  - prima ime grada kao parametar
+  - vraca JSON objekat koji dobije od servisa
+
+7a. napisati unit test za ovu funkciju koja:
+  - mockuje eksterni REST API poziv i vraca neku hardkodovanu vrednost
+  - proverava da li se poziva pravilan URL
+  - proverava da li se vraca JSON dobijen od mockovanog servisa (videti .toEqual() u jest dokumentaciji)
+
