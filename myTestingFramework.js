@@ -12,7 +12,10 @@ function expect(actual) {
   return {
     toBe (expected) {
       if (actual !== expected) {
-        throw new Error(`${actual} is not equal to ${expected}`)
+        let error = new Error(`${actual} is not equal to ${expected}`)
+        error.stack = error.stack.split('\n').filter((l,i) => i < 3 && i !== 1).join('\n')
+        error.stack = '   ' + error.stack + '\n'
+        throw error
       }
     },
     // toBeGreaterThan(expected) {},
