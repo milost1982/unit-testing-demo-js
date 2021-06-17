@@ -13,6 +13,7 @@ test('getGithubProfile', async () => {
     "blog": "http://getify.me"
   }`)
 
+  const originalAxiosGet = axios.get
   async function mockAxioxGet(username) {
     return { data: mockData}
   }
@@ -25,4 +26,7 @@ test('getGithubProfile', async () => {
   expect(axios.get).toHaveBeenCalledTimes(1)
   expect(axios.get).toHaveBeenCalledWith('https://api.github.com/users/test-username')
   expect(data).toEqual(mockData)
+
+  // cleanup
+  axios.get = originalAxiosGet
 })
